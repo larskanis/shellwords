@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/larskanis/shellwords.png)](https://travis-ci.org/larskanis/shellwords)
+
 # Shellwords
 
 TODO: Write a gem description
