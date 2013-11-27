@@ -7,10 +7,10 @@ Gem::Specification.new do |spec|
   spec.name          = "shellwords"
   spec.version       = Shellwords::VERSION
   spec.authors       = ["Lars Kanis"]
-  spec.email         = ["kanis@comcard.de"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
-  spec.homepage      = ""
+  spec.email         = ["lars@greiz-reinsdorf.de"]
+  spec.description   = %q{Replacement for shellwords in Ruby's stdlibs. It supports escaping rules of Windows cmd.exe and MS runtime libraries.}
+  spec.summary       = %q{Replacement for shellwords in Ruby's stdlibs.}
+  spec.homepage      = "https://github.com/larskanis/shellwords"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)

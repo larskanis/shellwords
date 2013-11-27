@@ -6,11 +6,13 @@ module Shellwords
   autoload :Msvcrt, 'shellwords/msvcrt'
   autoload :MsvcrtByCmdExe, 'shellwords/msvcrt_by_cmd_exe'
 
-  attr_reader :default_rule_set
-
   @@default_rule_set = case RUBY_PLATFORM
     when /mingw|mswin/ then Shellwords::Msvcrt
     else Shellwords::Bourne
+  end
+
+  def self.default_rule_set
+    @@default_rule_set
   end
 
   def self.default_rule_set=(v)

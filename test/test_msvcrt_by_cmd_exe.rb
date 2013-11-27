@@ -21,7 +21,7 @@ class TestMsvcrtByCmdExe < Test::Unit::TestCase
     'a//^"^"  b \'c\' d^"^"E' => ['a/', 'b', "'c'", 'dE'],
     '^"//^" ^" b /^" / // c^" D' => ["/", ' b " / // c', 'D'],
     '^" a /^" / //^"/' => [' a " / //'],
-    '^" a /^" /> //^"/// ^^B' => [' a " /> ////', '^B'],
+    '^" a /^" /^> //^"/// ^^B' => [' a " /> ////', '^B'],
     '^" ^"a^" / /////^" B^"' => [' a / //" B'],
     '^" ^"^"a / /////^"^"^"^"^"^"^"' => [' "a', '/', '//"""'],
     "a/ b" => ['a/', 'b'],
@@ -65,6 +65,7 @@ class TestMsvcrtByCmdExe < Test::Unit::TestCase
   end
 
   def split_per_output_argv_exe(cmdline)
-    `#{OutputArgvExe} #{cmdline} &`.scan(/^===>(.*?)<===\n/m).map(&:first)
+    # The @ triggers that the command is started through cmd.exe.
+    `@#{OutputArgvExe} #{cmdline}`.scan(/^===>(.*?)<===\n/m).map(&:first)
   end
 end
