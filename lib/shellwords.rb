@@ -1,4 +1,5 @@
 require "shellwords/version"
+require "rbconfig"
 
 module Shellwords
   autoload :Bourne, 'shellwords/bourne'
@@ -6,7 +7,7 @@ module Shellwords
   autoload :Msvcrt, 'shellwords/msvcrt'
   autoload :MsvcrtByCmdExe, 'shellwords/msvcrt_by_cmd_exe'
 
-  @@default_rule_set = case RUBY_PLATFORM
+  @@default_rule_set = case RbConfig::CONFIG['host_os']
     when /mingw|mswin/ then Shellwords::Msvcrt
     else Shellwords::Bourne
   end
